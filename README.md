@@ -2,6 +2,7 @@
 
 ✨ Another OneDrive Directory Index.
 
+[![6.0 latest stable version exclusive version](https://github.com/liuqianqi/OLAINDEX/)](https://github.com/liuqianqi/OLAINDEX/)
 [![Latest Stable Version](https://poser.pugx.org/wangningkai/olaindex/v/stable)](https://packagist.org/packages/wangningkai/olaindex)
 [![Latest Unstable Version](https://poser.pugx.org/wangningkai/olaindex/v/unstable)](//packagist.org/packages/wangningkai/olaindex)
 [![GitHub stars](https://img.shields.io/github/stars/WangNingkai/OLAINDEX.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/stargazers)
@@ -24,10 +25,11 @@ the `Microsoft Graph API` present content,support multiple accounts,multiple the
 
 ## Project address
 
-- [OLAINDEX](https://github.com/WangNingkai/OLAINDEX)
+- [OLAINDEX](https://github.com/liuqianqi/OLAINDEX)
 
 ## Demo
 
+-独享版暂不提供Demo，下方链接为原版Demo
 - [https://demo.olaindex.com](https://demo.olaindex.com)
 
 ## Preview
@@ -83,9 +85,8 @@ However, if you are using this project and happy with it or just want to encoura
 are few ways you can do it :-
 
 - Starring and sharing the project :rocket:
-- [![paypal.me/wangningkai](https://ionicabizau.github.io/badges/paypal.svg)](https://www.paypal.me/wangningkai) - You
-  can make one-time donations via PayPal. I'll probably buy a ~~coffee~~ tea. :tea:
-- [Wechat & AliPay](https://pay.ningkai.wang)
+-  You can make one-time donations via PayPal. I'll probably buy a ~~coffee~~ tea. :tea:
+- https://ae01.alicdn.com/kf/Uf745d7c8c5334e60bc026d94d23e3d6au.jpg
 
 Thanks! :heart:
 
