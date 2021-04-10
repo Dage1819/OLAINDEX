@@ -53,6 +53,7 @@
                             <th>状态</th>
                             <th>上次刷新</th>
                             <th>备注 <span class="small">(选择显示)</span></th>
+                            <th>文件管理</th>
                             <th class="text-end">操作</th>
                         </tr>
                         </thead>
@@ -81,7 +82,13 @@
                                                    data-id="{{ $account->id }}">
                                         </label>
                                     </td>
+                                     <td>
+                                     <a class=""
+                                                   href="{{ route('manage.query',['account_id' =>$account->id])  }}">文件管理</a>
+                                     </td>
                                     <td class="text-end">
+                                        
+                                       
                                         <div class="dropdown">
                                             <button class="btn dropdown-toggle align-text-top"
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">
