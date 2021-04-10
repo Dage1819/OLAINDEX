@@ -34,11 +34,15 @@
                     </form>
                 </div>
             </div>
+    
+            
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">初始化配置</h3>
                 </div>
+                
                 <div class="card-body">
+                    <span class="form-hint text-danger">前往<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview" target="_blank">Azure Active Directory 控制台 (国际版账号)</a> 或者 <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview" target="_blank">Azure Active Directory 控制台 (世纪互联账号)</a>并登录，登录后进入<code>Azure Active Directory</code>管理面板。注册应用并获取client_id、client_secret。</span><p>
                     <form action="" method="post">
                         @csrf
                         <div class="form-group mb-3">
