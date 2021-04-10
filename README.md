@@ -85,7 +85,7 @@ However, if you are using this project and happy with it or just want to encoura
 are few ways you can do it :-
 
 - Starring and sharing the project :rocket:
--  You can make one-time donations via PayPal. I'll probably buy a ~~coffee~~ tea. :tea:
+-  You can make one-time donations via weixin. I'll probably buy a ~~coffee~~ tea. :tea:
 - 
 <img src="https://ae01.alicdn.com/kf/Uf745d7c8c5334e60bc026d94d23e3d6au.jpg" alt="weixin" data-canonical-src="https://ae01.alicdn.com/kf/Uf745d7c8c5334e60bc026d94d23e3d6au.jpg" style="max-width:100%;">
 Thanks! :heart:
