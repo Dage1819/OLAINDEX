@@ -1,8 +1,6 @@
-
-@extends('default.layouts.main')
+@extends('admin.layouts.main')
 @section('title', '文件管理')
 @section('content')
-    
     <!-- Page title -->
     <div class="page-header d-print-none">
         <div class="row align-items-center">
@@ -239,7 +237,6 @@
                                     </td>
                                     <td>{{ convert_size($data['size']) }}</td>
                                     <td>{{ date('y-m-d H:i:s', strtotime($data['lastModifiedDateTime'])) }}</td>
-                                    
                                     <td>
 
                                 <!--就这里--->     
@@ -247,7 +244,6 @@
                         <button class="btn btn-ghost-danger fuzhi" style="z-index:999;">复制</button>
                                      
                                     </td>
-                                    
                                     <td class="text-end">
                                         <a href="javascript:void(0);" class="btn btn-ghost-danger delete">
                                             删除
@@ -504,8 +500,6 @@
                 }
                 e.stopPropagation()
             })
-            
-            
             $('form#mkdirForm').on('submit', function(e) {
                 e.preventDefault()
                 const data = $(this).serialize()
@@ -563,6 +557,7 @@
                 alert("复制成功!");
                 
             })
+
             $('.delete').on('click', function(e) {
                 let id = $(this).parent().parent().attr('data-id')
                 Swal.fire({
@@ -605,6 +600,5 @@
                 e.stopPropagation()
             })
         })
-        
     </script>
 @endpush
