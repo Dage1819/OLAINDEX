@@ -1,6 +1,6 @@
 ＃OLAINDEX
-独享版
-✨另一个OneDrive目录索引。
+
+✨另一个OneDrive目录索引-独享版。
 [![latest stable version exclusive version](https://github.com/liuqianqi/OLAINDEX//v/stable)](https://github.com/liuqianqi/OLAINDEX/)
 [![Latest Stable Version](https://poser.pugx.org/wangningkai/olaindex/v/stable)](https://packagist.org/packages/wangningkai/olaindex)
 [![Latest Unstable Version](https://poser.pugx.org/wangningkai/olaindex/v/unstable)](//packagist.org/packages/wangningkai/olaindex)
