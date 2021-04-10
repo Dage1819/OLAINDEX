@@ -1,6 +1,8 @@
-@extends('admin.layouts.main')
+
+@extends('default.layouts.main')
 @section('title', '文件管理')
 @section('content')
+    
     <!-- Page title -->
     <div class="page-header d-print-none">
         <div class="row align-items-center">
@@ -112,6 +114,7 @@
                             </th>
                             <th>大小</th>
                             <th>时间</th>
+                            <th>复制外链</th>
                             <th class="text-end">操作</th>
                         </tr>
                         </thead>
@@ -236,6 +239,15 @@
                                     </td>
                                     <td>{{ convert_size($data['size']) }}</td>
                                     <td>{{ date('y-m-d H:i:s', strtotime($data['lastModifiedDateTime'])) }}</td>
+                                    
+                                    <td>
+
+                                <!--就这里--->     
+                    <textarea cols="1" rows="1" id="{{$data['id']}}" style="height:0px;width:0px;border: none;resize: none;cursor: pointer;">{{ shorten_url(route('drive.query', [ 'query' => url_encode(implode('/', $path))])) }}/{{ $data['name'] }}?hash={{$hash}}</textarea>
+                        <button class="btn btn-ghost-danger fuzhi" style="z-index:999;">复制</button>
+                                     
+                                    </td>
+                                    
                                     <td class="text-end">
                                         <a href="javascript:void(0);" class="btn btn-ghost-danger delete">
                                             删除
@@ -492,6 +504,8 @@
                 }
                 e.stopPropagation()
             })
+            
+            
             $('form#mkdirForm').on('submit', function(e) {
                 e.preventDefault()
                 const data = $(this).serialize()
@@ -532,7 +546,23 @@
                         console.log(error)
                     })
             })
+            $('.fuzhi').on('click', function(e) {
 
+                let id = $(this).parent().parent().attr('data-id')
+                console.log(id)
+                
+               
+                var Url2=document.getElementById(id);
+                console.log(Url2)
+                Url2.select(); // 选择对象
+                
+                document.execCommand("Copy"); // 执行浏览器复制命令
+
+                
+                 e.stopPropagation()
+                alert("复制成功!");
+                
+            })
             $('.delete').on('click', function(e) {
                 let id = $(this).parent().parent().attr('data-id')
                 Swal.fire({
@@ -575,5 +605,6 @@
                 e.stopPropagation()
             })
         })
+        
     </script>
 @endpush
