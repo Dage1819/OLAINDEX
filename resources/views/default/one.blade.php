@@ -10,7 +10,7 @@
             </div>
         </div>
     @endif
- <!---   <div class="card border-light mb-3 shadow">
+    <div class="card border-light mb-3 shadow">
         <div class="card-header d-flex align-items-center">
             @if(count($accounts) > 1)
                 <div class="dropdown mb-0 mr-2 my-1">
@@ -132,8 +132,7 @@
             {{ $list->appends(['sortBy'=> request()->get('sortBy'),'keywords' => request()->get('keywords'),'hash' => request()->get('hash')])->links('default.components.page') }}
         </div>
     </div>
-    ----->
-    <div class="card border-light mb-3 shadow" style="margin-top: 20%;padding: 20px;"><center style="font-size: 28px;">欢迎使用olaindex独享版<br>部分地区可能下载速度较慢，可以使用本站下载加速器，速度可达5倍左右！<br>GitHub发布地址https://github.com/liuqianqi/OLAINDEX</center></div>
+
     @if (!blank($doc['readme']))
         <div class="card border-light mb-3 shadow">
             <div class="card-header"><i class="ri-bookmark-fill"></i> README</div>
