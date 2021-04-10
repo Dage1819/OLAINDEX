@@ -14,6 +14,7 @@ use App\Models\Account;
 use App\Service\GraphErrorEnum;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Helpers\HashidsHelper;
 use Cache;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
@@ -40,6 +41,9 @@ class ManageController extends BaseController
         if (!$account) {
             abort(404, '未知账号！');
         }
+
+        $hash = HashidsHelper::encode($account_id);
+        
         // 资源处理
         $root = $account->config['root'] ?? '/';
         $rawQuery = rawurldecode($query);
@@ -109,8 +113,8 @@ class ManageController extends BaseController
         $list = $this->sort($list, $column, $descending);
 
         $list = $this->paginate($list, 20, false);
-
-        return view('admin.file-manage' . $view, compact('account_id', 'account', 'readme', 'path', 'query', 'item', 'list', 'keywords'));
+        //var_dump($account_id);die;
+        return view('admin.file-manage' . $view, compact('account_id','hash', 'account','readme', 'path', 'query', 'item', 'list', 'keywords'));
     }
 
     /**
