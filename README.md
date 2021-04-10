@@ -1,12 +1,10 @@
 # OLAINDEX
 
 ✨ Another OneDrive Directory Index.
-
-[![6.0 latest stable version exclusive version](https://github.com/liuqianqi/OLAINDEX/)](https://github.com/liuqianqi/OLAINDEX/)
+[![latest stable version exclusive version](https://github.com/liuqianqi/OLAINDEX//v/stable)](https://github.com/liuqianqi/OLAINDEX/)
 [![Latest Stable Version](https://poser.pugx.org/wangningkai/olaindex/v/stable)](https://packagist.org/packages/wangningkai/olaindex)
 [![Latest Unstable Version](https://poser.pugx.org/wangningkai/olaindex/v/unstable)](//packagist.org/packages/wangningkai/olaindex)
 [![GitHub stars](https://img.shields.io/github/stars/WangNingkai/OLAINDEX.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/WangNingkai/OLAINDEX.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/network)
 [![GitHub license](https://img.shields.io/github/license/WangNingkai/OLAINDEX.svg?style=flat-square)](https://github.com/WangNingkai/OLAINDEX/blob/master/LICENSE)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=WangNingkai.OLAINDEX)
 
