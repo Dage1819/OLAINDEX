@@ -118,7 +118,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td colspan="4">
+                            <td colspan="5">
                                 @if(!blank($path))
                                     <a class="btn btn-primary mr-2 my-1"
                                        href="{{ route('manage.query', ['account_id' => $account_id, 'query' => url_encode(\App\Helpers\Tool::fetchGoBack($path))]) }}">
@@ -199,7 +199,7 @@
                         </tr>
                         @if(blank($list))
                             <tr>
-                                <td colspan="4" class="text-center">
+                                <td colspan="5" class="text-center">
                                     Ops! 暂无资源
                                 </td>
                             </tr>
