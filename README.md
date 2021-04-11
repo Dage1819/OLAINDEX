@@ -59,9 +59,11 @@ chown -R www:www * # this 'www' refer to the serve user group
 composer run install-app # installation app
 
 ```
+
+使用mysql安装方法
+
 ```bash
 
-cd web-project-mysql
 cd web目录
 git clone https://github.com/liuqianqi/OLAINDEX.git tmp 
 mv tmp/.git . 
