@@ -49,7 +49,7 @@ the `Microsoft Graph API` present content,support multiple accounts,multiple the
 ```bash
 
 cd web-project
-git clone https://github.com/WangNingkai/OLAINDEX.git tmp 
+git clone https://github.com/liuqianqi/OLAINDEX.git tmp 
 mv tmp/.git . 
 rm -rf tmp 
 git reset --hard 
@@ -59,6 +59,24 @@ chown -R www:www * # this 'www' refer to the serve user group
 composer run install-app # installation app
 
 ```
+cd web-project-mysql
+cd web目录
+git clone https://github.com/liuqianqi/OLAINDEX.git tmp 
+mv tmp/.git . 
+rm -rf tmp 
+git reset --hard 
+composer install -vvv # 这里确保已成功安装 composer ，如果报权限问题，建议给予用户完整权限。
+chmod -R 777 storage 
+chown -R www:www * # 此处 www 根据服务器具体用户组而定 
+前提已通过上面步骤，使用 `composer` 安装依赖，确保 `storage` 目录有写入权限 
+1. 修改根目录 `.env-mysql` 为 `.env`
+2. 修改 `.env` 文件的数据库配置及其它配置
+3. 执行 `php artisan key:generate` 生成运行所需配置
+4. 执行数据库迁移 `php artisan migrate --seed`
+5. 访问网站，设置其它数据
+
+```
+
 
 ## Bug report
 
