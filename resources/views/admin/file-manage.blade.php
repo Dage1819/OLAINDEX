@@ -239,8 +239,9 @@
                                     <td>{{ date('y-m-d H:i:s', strtotime($data['lastModifiedDateTime'])) }}</td>
                                     <td>
 
-                                <!--就这里--->     
-                    <textarea cols="1" rows="1" id="{{$data['id']}}" style="height:0px;width:0px;border: none;resize: none;cursor: pointer;">{{ shorten_url(route('drive.query', [ 'query' => url_encode(implode('/', $path))])) }}/{{ $data['name'] }}?hash={{$hash}}</textarea>
+                                <!--就这里--->   
+                    <textarea cols="1" rows="1" id="{{$data['id']}}" style="height:0px;width:0px;border: none;resize: none;cursor: pointer;">{{ shorten_url(route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name']) ))])) }}
+                    </textarea>
                         <button class="btn btn-ghost-danger fuzhi" style="z-index:999;">复制</button>
                                      
                                     </td>
