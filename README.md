@@ -10,6 +10,12 @@
 
 > **[中文README](./README_CN.md)**
 
+## 魔改内容
+
+优化了后台细节功能，更适合小白使用，递增了部分注释说明，
+新增后台一键复制外链功能
+......
+
 ## Introduction
 
 A simple, full-featured OneDrive directory index web app, Built on top of the Laravel framework. Using
