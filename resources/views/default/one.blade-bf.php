@@ -41,12 +41,102 @@
                 </form>
             @endif
         </div>
-        <!----开始----->
+        <!----开始------>
         <div class="card-body table-responsive">
          Ops! hello,此页面不可访问！
         </div>
-        <!--删除首页文件夹列表显示--->
+        <!--
+        <div class="card-body table-responsive">-->
+        <!--    <table class="table table-sm table-hover  table-borderless">-->
+        <!--        <caption>-->
+        <!--            {{ array_get($item,'folder.childCount',0) }}-->
+        <!--            个项目-->
+        <!--            {{ convert_size(array_get($item,'size',0)) }}-->
+        <!--        </caption>-->
+        <!--        <thead class="w-100">-->
+        <!--        <tr class="row mx-0">-->
+        <!--            <th class="col-5">-->
+        <!--                文件-->
+        <!--                @if(\App\Helpers\Tool::getOrderByStatus('name'))-->
+        <!--                    <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','name,asc') }}"-->
+        <!--                       class="text-decoration-none"><i class="ri-arrow-down-s-line"></i> </a>-->
+        <!--                @else-->
+        <!--                    <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','name,desc') }}"-->
+        <!--                       class="text-decoration-none"><i class="ri-arrow-up-s-line"></i> </a>-->
+        <!--                @endif-->
+        <!--            </th>-->
+        <!--            <th class="col-2">-->
+        <!--                大小-->
+        <!--                @if(\App\Helpers\Tool::getOrderByStatus('size'))-->
+        <!--                    <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','size,asc') }}"-->
+        <!--                       class="text-decoration-none"><i class="ri-arrow-down-s-line"></i> </a>-->
+        <!--                @else-->
+        <!--                    <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','size,desc') }}"-->
+        <!--                       class="text-decoration-none"><i class="ri-arrow-up-s-line"></i> </a>-->
+        <!--                @endif-->
+        <!--            </th>-->
+        <!--            <th class="col-3">-->
+        <!--                时间-->
+        <!--                @if(\App\Helpers\Tool::getOrderByStatus('lastModifiedDateTime'))-->
+        <!--                    <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','lastModifiedDateTime,asc') }}"-->
+        <!--                       class="text-decoration-none"><i class="ri-arrow-down-s-line"></i> </a>-->
+        <!--                @else-->
+        <!--                    <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','lastModifiedDateTime,desc') }}"-->
+        <!--                       class="text-decoration-none"><i class="ri-arrow-up-s-line"></i> </a>-->
+        <!--                @endif-->
+        <!--            </th>-->
+        <!--            <th class="col-2">操作</th>-->
+        <!--        </tr>-->
+        <!--        </thead>-->
+        <!--        <tbody class="w-100">-->
+        <!--        @if(!blank($path))-->
+        <!--            <tr class="row mx-0">-->
+        <!--                <td colspan="4">-->
+        <!--                    <a class="text-decoration-none"-->
+        <!--                       href="{{ route('drive.query', ['hash' => $hash, 'query' => url_encode(\App\Helpers\Tool::fetchGoBack($path))]) }}">-->
+        <!--                        <i class="ri-arrow-go-back-fill"></i> 返回上级-->
+        <!--                    </a>-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--        @endif-->
+        <!--        @if(blank($list))-->
+        <!--            <tr class="row mx-0 text-center">-->
+        <!--                <td colspan="4">-->
+        <!--                    Ops! 暂无资源-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--        @else-->
+        <!--            @foreach($list as $data)-->
+        <!--                <tr class="list-item row mx-0 align-items-center"-->
+        <!--                    data-route="{{ route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name']) ))]) }}">-->
+        <!--                    <td class="col-5"-->
+        <!--                        style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">-->
+        <!--                        <a title="{{ $data['name'] }}"-->
+        <!--                           href="{{ route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name'])))]) }}"-->
+        <!--                           class="text-decoration-none stretched-link">-->
+        <!--                            <i class="ri-{{ \App\Helpers\Tool::fetchExtIco($data['ext'] ?? 'file') }}-fill"></i>-->
+        <!--                            {{ $data['name'] }}-->
+        <!--                        </a>-->
+        <!--                    </td>-->
 
+        <!--                    <td class="col-2">{{ convert_size($data['size']) }}</td>-->
+        <!--                    <td class="col-3">{{ date('Y-m-d H:i:s', strtotime($data['lastModifiedDateTime'])) }}</td>-->
+        <!--                    <td class="col-2">-->
+        <!--                        @if(array_has($data,'folder'))-->
+        <!--                            --->
+        <!--                        @else-->
+        <!--                            <a title="{{ $data['name'] }}"-->
+        <!--                               href="{{ shorten_url(route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name']) )),'download' => 1])) }}"-->
+        <!--                               class="btn btn-sm btn-primary download mr-2 my-1">下载</a>-->
+        <!--                        @endif-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--            @endforeach-->
+        <!--        @endif-->
+        <!--        </tbody>-->
+        <!--    </table>-->
+        <!--    {{ $list->appends(['sortBy'=> request()->get('sortBy'),'keywords' => request()->get('keywords'),'hash' => request()->get('hash')])->links('default.components.page') }}-->
+        <!--</div>-->
     </div>
 
     @if (!blank($doc['readme']))
