@@ -107,11 +107,33 @@
                     <table class="table card-table table-vcenter text-nowrap datatable table-hover table-borderless">
                         <thead>
                         <tr>
-                            <th>
-                                文件
+                            <th>文件
+                            @if(\App\Helpers\Tool::getOrderByStatus('name'))
+                            <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','name,asc') }}"
+                               class="text-decoration-none"><i class="ri-arrow-down-s-line"></i> </a>
+                            @else
+                            <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','name,desc') }}"
+                               class="text-decoration-none"><i class="ri-arrow-up-s-line"></i> </a>
+                            @endif
                             </th>
-                            <th>大小</th>
-                            <th>时间</th>
+                            <th>大小
+                            @if(\App\Helpers\Tool::getOrderByStatus('size'))
+                            <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','size,asc') }}"
+                               class="text-decoration-none"><i class="ri-arrow-down-s-line"></i> </a>
+                            @else
+                            <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','size,desc') }}"
+                               class="text-decoration-none"><i class="ri-arrow-up-s-line"></i> </a>
+                            @endif
+                            </th>
+                            <th>时间
+                            @if(\App\Helpers\Tool::getOrderByStatus('lastModifiedDateTime'))
+                            <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','lastModifiedDateTime,asc') }}"
+                               class="text-decoration-none"><i class="ri-arrow-down-s-line"></i> </a>
+                            @else
+                            <a href="{{  \App\Helpers\Tool::buildQueryParams(url()->full(),'sortBy','lastModifiedDateTime,desc') }}"
+                               class="text-decoration-none"><i class="ri-arrow-up-s-line"></i> </a>
+                            @endif
+                            </th>
                             <th>复制外链</th>
                             <th class="text-end">操作</th>
                         </tr>
@@ -210,9 +232,10 @@
                                     data-name="{{ $data['name'] }}"
                                     data-file="{{ !array_has($data,'folder') }}"
                                     data-size="{{ $data['size'] }}"
-                                    data-route="{{ route('manage.query', ['account_id' => $account_id, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name'])))]) }}">
+                                   >
                                     <td style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">
                                         @if(!array_has($data,'folder'))
+                                        <a style="color: #110f0f;" href="{{ shorten_url(route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name']) ))])) }}" target="_blank">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
                                                  height="24" viewBox="0 0 24 24" stroke-width="2"
                                                  stroke="currentColor" fill="none" stroke-linecap="round"
@@ -222,7 +245,9 @@
                                                 <path
                                                     d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/>
                                             </svg>
+                                            {{ $data['name'] }}</a>
                                         @else
+                                        <a style="color: #110f0f;" href="{{ route('manage.query', ['account_id' => $account_id, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name'])))]) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
                                                  height="24" viewBox="0 0 24 24" stroke-width="2"
                                                  stroke="currentColor" fill="none" stroke-linecap="round"
@@ -231,17 +256,17 @@
                                                 <path
                                                     d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"/>
                                             </svg>
+                                            {{ $data['name'] }}</a>
                                         @endif
 
-                                        {{ $data['name'] }}
+                                       
                                     </td>
                                     <td>{{ convert_size($data['size']) }}</td>
                                     <td>{{ date('y-m-d H:i:s', strtotime($data['lastModifiedDateTime'])) }}</td>
                                     <td>
 
                                 <!--就这里--->   
-                   <textarea id="{{$data['id']}}" style="height:0px;width:0px;padding: 0px;border: none;resize: none;cursor: pointer;">{{ shorten_url(route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name']) ))])) }}
-                    </textarea>
+                   <textarea id="{{$data['id']}}" style="height:0px;width:0px;padding: 0px;border: none;resize: none;cursor: pointer;">{{ shorten_url(route('drive.query', ['hash' => $hash, 'query' => url_encode(implode('/', array_add($path, key(array_slice($path, -1, 1, true)) + 1, $data['name']) ))])) }}</textarea>
                         <button class="btn btn-ghost-danger fuzhi" style="z-index:999;">复制</button>
                                      
                                     </td>
@@ -337,6 +362,7 @@
 @stop
 @push('stylesheet')
     <link rel="stylesheet" href="https://cdn.staticfile.org/filepond/4.23.1/filepond.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 @endpush
 @push('scripts')
     <script src="https://cdn.staticfile.org/filepond/4.23.1/filepond.min.js"></script>
@@ -602,4 +628,27 @@
             })
         })
     </script>
+     <style>
+    .arr {
+      width: 160px;
+    }
+ 
+    .arrUp {
+      width: 0;
+      height: 0;
+      border: 80px solid transparent;
+      border-bottom-color: #ccc;
+      cursor: pointer;
+    }
+ 
+    .arrDown {
+      width: 0;
+      height: 0;
+      border: 80px solid transparent;
+      border-top-color: #ccc;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+
 @endpush
