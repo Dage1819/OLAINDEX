@@ -80,7 +80,7 @@ chown -R www:www * # 此处 www 根据服务器具体用户组而定
 5. 访问网站，设置其它数据
 
 ```
-使用mysql安装方法
+composer 1.8.0
 
 ```bash
 composer self-update 1.8.0
