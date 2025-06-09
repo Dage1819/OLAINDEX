@@ -87,6 +87,9 @@ composer self-update 1.8.0
 
 composer -V
 
+如果使用宝塔环境提示composer运行的php版本不对，指定PHP执行路径即可：
+/www/server/php/74/bin/php /usr/bin/composer
+
 ```
 
 ## Bug report
